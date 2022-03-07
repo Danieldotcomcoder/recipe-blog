@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :inventories
-  resources :inventory_foods
+root "users#index"
+
   resources :foods
-  resources :recipe_foods
-  resources :recipes
-  resources :users
+  resources :user do
+    resources :recipes  
+  
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
