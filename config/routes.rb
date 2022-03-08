@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'public_recipes/index'
   devise_for :users
  
 
@@ -9,7 +8,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     resources :recipe_foods, only: [:new, :create, :destroy, :update, :edit]
   end
-
+  resources :public_recipes, only: [:index]
   
   devise_scope :user do 
     get '/users/sign_out' => 'devise/sessions#destroy' 
