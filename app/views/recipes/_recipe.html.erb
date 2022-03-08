@@ -1,27 +1,26 @@
 <div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
-
-  <p>
-    <strong>Preparationtime:</strong>
-    <%= recipe.preparationTime %>
-  </p>
-
-  <p>
-    <strong>Cookingtime:</strong>
-    <%= recipe.cookingTime %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
-  </p>
-
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
-
-</div>
+ 
+  <div class="major_div">
+    <h1><%= recipe.name %></h1>
+    <div  >
+      <div >
+        <p>Preparation time: <span><%= recipe.preparationTime %></span></p>
+        <p>Cooking time: <span><%= recipe.cookingTime %></span></p>
+        <p><%= recipe.description %></p>
+      </div>
+     
+        <div >
+          <p>Public:</p>
+          <%= link_to "/recipes/#{recipe.id}/update_public", method: :post do %>
+            <label class="toggle">
+              <% if recipe.public %>
+                <input type="checkbox" checked />
+              <% else %>
+                <input type="checkbox" />
+              <% end %>
+              <span class="slider round"></span>
+            </label>
+          <% end %>
+        </div>
+      
+    </div>
