@@ -24,7 +24,7 @@
     </div>
     <div class="d-flex justify-content-around">
     <div class="w-30">
-      <%= link_to "Generate shopping list", recipes_path, class: "btn btn-primary btn-floating mx-1"%>
+      <%= link_to "Generate Shopoing list",  recipe_shopping_lists_path(@recipe.id), :class => "btn btn-primary my-5" %>
     </div>
     <div>
       <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe) , class: "btn btn-primary btn-floating mx-1"%>
