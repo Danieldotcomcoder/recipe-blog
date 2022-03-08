@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
-
+   load_and_authorize_resource
+   before_action :set_recipe, only: %i[show edit update destroy]
   
   def index
     @recipes = current_user.recipes
   end
 
-  # GET /recipes/1 or /recipes/1.json
+
   def show; end
 
   def new
@@ -30,18 +30,6 @@ class RecipesController < ApplicationController
     end
   end
 
-  def update
-    respond_to do |format|
-      if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipe }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   def destroy
     @recipe.destroy
 
@@ -53,8 +41,14 @@ class RecipesController < ApplicationController
 
   private
 
-    
-    def recipe_params
-      params.require(:recipe).permit(:name, :preparationTime, :cookingTime, :description, :public)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def recipe_params
+    params.require(:recipe).permit(:name, :preparationTime, :cookingTime, :description, :public)
+  end
+
 end
