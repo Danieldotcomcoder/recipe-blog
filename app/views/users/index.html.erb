@@ -1,14 +1,29 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Users</h1>
-
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New user", new_user_path %>
+<%= link_to new_food_url, :class => "btn btn-dark bg-dark add mt-3 mb-2"  do %>
+Add Food
+<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Measurement Unit</th>
+      <th scope="col">UNit Price</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do | food| %>
+    <tr>
+      <th scope="row">
+        <%= link_to food_url(food.id) do %>
+          <%= food.name %>
+        <% end %>
+      </th>
+      <td> <%= food.measurement_unit %> </td>
+      <td> $ <%= food.price %></td>
+      <td>
+        <%= link_to "Delete Food", food_url(food), method: :delete, data: {confirm: "Are you sure"}, :class => "btn btn-sm btn-danger"%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
