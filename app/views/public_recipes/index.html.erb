@@ -5,14 +5,14 @@
       <% @recipes.each do |recipe| %>
       <li class="card list-style-none mb-3">
         <div class="card-header fs-4">
-        <%= link_to recipe.name, recipe_path(recipe.id) %>
+        <%= link_to recipe[:name], recipe_path(id: recipe[:id]) %>
         </div>
         <div class="card-body">
-          <h5 class="card-title">By: <%= recipe.user.name %></h5>
-          <p class="card-text fs-6 mb-4">Description: <%= recipe.description %></p>
+          <h5 class="card-title">By: <%= recipe[:user] %></h5>
+          <p class="card-text fs-6 mb-4">Description: <%= recipe[:description] %></p>
           <div class="d-flex justify-content-between">
-            <span class="card-text">Total food items: <%= recipe.cookingTime %> </span><br>
-            <span class="card-text">Total price: <%= recipe.preparationTime %> $</span>
+            <p>Total food items: <%= recipe[:ingredients_amount] %></p>
+            <p>Total price: <%= recipe[:ingredients_price] %></p>
           </div>
         </div>
       </li>

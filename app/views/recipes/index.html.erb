@@ -10,7 +10,9 @@
           <h4><%= r.name%></h4>
           <% end %>
           <div>
+          <%if can? :destroy, r %>
             <%= button_to "Delete", recipe_path(r.id), method: :delete, class: "btn btn-danger"%>
+          <% end %>
           </div>
         </div>
         <div>
@@ -20,4 +22,4 @@
     </li>
     <% end %>
   </ul>
-</div>
+ </div>
