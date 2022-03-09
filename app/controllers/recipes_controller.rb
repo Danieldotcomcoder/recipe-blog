@@ -4,12 +4,13 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = current_user.recipes
+    @recipe = Recipe.find_by(id: params[:id])
   end
 
   def show; end
 
   def new
-    @recipe = Recipe.new
+    @recipes = current_user.recipes.includes(:foods)
   end
 
   # GET /recipes/1/edit
@@ -30,6 +31,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    @recipe = Recipe.find_by(id: params[:id])
     @recipe.destroy
 
     respond_to do |format|
