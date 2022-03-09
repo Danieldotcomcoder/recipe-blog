@@ -30,7 +30,6 @@ class RecipeFoodsController < ApplicationController
     else
       render :new
     end
-    
   end
 
   def update
@@ -45,7 +44,7 @@ class RecipeFoodsController < ApplicationController
 
   def destroy
     @recipe_food = RecipeFood.find(params[:id])
-    
+
     @recipe_food.destroy
     flash[:success] = 'Recipe Food deleted successfully.'
     redirect_to recipe_path(@recipe_food.recipe_id)
