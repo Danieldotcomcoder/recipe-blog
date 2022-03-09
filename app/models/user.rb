@@ -16,7 +16,7 @@ class User < ApplicationRecord
     end
     sum
   end
-  
+
   ROLES = %i[admin default].freeze
 
   def is?(requested_role)
