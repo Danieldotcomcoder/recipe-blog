@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :recipe_foods, only: [:new, :create, :destroy, :update, :edit]
     resources :shopping_lists, only: [:index]
   end
-
+  resources :public_recipes, only: [:index]
   
   devise_scope :user do 
     get '/users/sign_out' => 'devise/sessions#destroy' 
