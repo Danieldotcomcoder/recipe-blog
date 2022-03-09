@@ -1,11 +1,10 @@
 class RecipesController < ApplicationController
-   load_and_authorize_resource
-   before_action :set_recipe, only: %i[show edit update destroy]
-  
+  load_and_authorize_resource
+  before_action :set_recipe, only: %i[show edit update destroy]
+
   def index
     @recipes = current_user.recipes
   end
-
 
   def show; end
 
@@ -50,5 +49,4 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name, :preparationTime, :cookingTime, :description, :public)
   end
-
 end

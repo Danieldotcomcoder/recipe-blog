@@ -1,5 +1,4 @@
 
-
 <div class="border border-3 border-primary container rounded">
   <div class="my-3 text-center">
     <h2 class><%= @recipe.name%></h2>
@@ -23,12 +22,38 @@
       <h5 class="p-2"> Steps go here...</h5>
     </div>
     <div class="d-flex justify-content-around">
-    <div class="w-30">
-      <%= link_to "Generate shopping list", recipes_path, class: "btn btn-primary btn-floating mx-1"%>
-    </div>
+     <% if user_signed_in? %>
     <div>
-      <%= link_to "Add ingredient", recipes_path, class: "btn btn-primary btn-floating mx-1"%>
+      <%= link_to "Generate Shopping list",  recipe_shopping_lists_path(@recipe.id), :class => "btn btn-primary" %>
+      <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe) , class: "btn btn-primary btn-floating"%>
     </div>
+    <% end %>
     </div>
   </div>
 </div>
+<table class="table container rounded">
+  <thead>
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Value</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @recipe.recipe_foods.each do |food| %>
+    <tr>
+      <th scope="row"><%= food.food.name %></th>
+      <td><%= food.quantity %></td>
+      <td><%= food.food.Price * food.quantity %></td>
+      <td>
+        <% if can? :destroy, @recipe %>
+  
+        <%=button_to "Delete", recipe_recipe_food_path(recipe_id: @recipe.id, id: food.id), method: :delete, class:"btn btn-outline-blue"%>
+        <%=link_to "Modify", edit_recipe_recipe_food_path(recipe_id: @recipe.id, id: food.id), class:"btn btn-outline-blue"%>
+      <%end%>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
