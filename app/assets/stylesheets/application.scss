@@ -1,1 +1,100 @@
 @import "bootstrap";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+form, .new_user, a,h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 30%;
+}
+
+h2 {
+    color: rgb(0, 17, 255);
+}
+
+.card {
+    width: 40%;
+    margin-left: 20%;
+}
+.del {
+ margin-left: -30%;
+ width: 20%;
+}
+
+form, input {
+  width: 100%;
+}
+
+.box-border {
+  border: 2px solid rgb(6, 0, 8);
+  border-radius: 8px;
+}
+.actions,input {
+  width: 20%;
+  margin-top: .25%;
+}
+
+.remember-me {
+ display: flex;
+ flex-direction: row;
+ margin-left: -10%;
+ margin-top: .2%; 
+}
+.add {
+  margin-left: 89%;
+}
+.table-bordered {
+  border: 2px solid rgb(6, 0, 8);
+  width: 90%;
+  margin-left: 5%;
+}
+.create{
+  background-color: cyan;
+  width: 8%;
+  margin-left: 65%;
+}
+.create:hover {
+  background-color: lightgreen;
+}
+
+.recipe-form {
+  width: 100%;
+}
+.form-label, .form-control {
+ width: 50%;
+}
+.form-control {
+  border: 2px solid rgb(6, 0, 8);
+}
+.public {
+  margin-left: 4%;
+}
+.recipe-c 
+{
+ margin-bottom: 5%;
+}
+.recipe-table {
+  width: 70%;
+  margin-left: 15%;
+}
+.recipe-btn {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 2%;
+}
+.table-btn {
+   display: flex;
+  flex-direction: row;   
+}
+.navbar-nav {
+ margin-right: 5%;
+}
+
+.back {
+ margin-left: 27%;
+}
