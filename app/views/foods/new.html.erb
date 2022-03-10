@@ -1,4 +1,5 @@
 <h2>Add Food</h2>
+<div class="addfood-f">
 <%= form_with model: @food do |form| %>
 <div>
   <%= form.label :name %><br>
@@ -16,6 +17,7 @@
 </div>
 
 <div class="actions">
-  <%= form.submit "Add", class: 'btn btn-primary' %>
+  <%= form.submit "Add", class: 'btn btn-primary add-food' %>
 </div>
 <% end %>
+</div>
