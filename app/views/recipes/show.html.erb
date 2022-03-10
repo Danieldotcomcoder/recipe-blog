@@ -50,8 +50,8 @@
   <% @recipe.recipe_foods.each do |food| %>
     <tr>
       <th scope="row"><%= food.food.name %></th>
-      <td><%= food.quantity %></td>
-      <td><%= food.food.Price * food.quantity %></td>
+      <td><%= food.quantity  %> <%= food.food.measurementUnit  %></td>
+      <td>$<%= food.food.Price * food.quantity %></td>
       <td class="table-btn">
         <% if can? :destroy, @recipe %>
   
