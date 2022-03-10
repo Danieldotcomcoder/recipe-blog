@@ -1,6 +1,6 @@
-<section class="container w-50 mx-auto mt-5">
- <h2 class="fs-1 lh-lg fw-semibold mt-5">Public Recipes</h2>
-  <div>
+<section class="container mx-auto mt-5">
+ <h3 class="fs-1 lh-lg fw-semibold mt-5 text-center">Public Recipes</h3>
+  <div class="public-c">
     <ul class="m-0 p-0">
       <% @recipes.each do |recipe| %>
       <li class="card list-style-none mb-3">
@@ -9,8 +9,7 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">By: <%= recipe[:user] %></h5>
-          <p class="card-text fs-6 mb-4">Description: <%= recipe[:description] %></p>
-          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-column float-end ">
             <p>Total food items: <%= recipe[:ingredients_amount] %></p>
             <p>Total price: <%= recipe[:ingredients_price] %></p>
           </div>
