@@ -8,17 +8,16 @@ RSpec.describe 'Recipe', type: :feature do
                             email: 'dan@gmail.com',
                             password: '1234567',
                             password_confirmation: '1234567')
-  
-      
-        fill_in 'Email', with: 'dan@gmail.com'
-        fill_in 'Password', with: '1234567'
-      
+
+      fill_in 'Email', with: 'dan@gmail.com'
+      fill_in 'Password', with: '1234567'
+
       click_button 'Log in'
-    
-      @recipe1 = @danny.recipes.create!(name: 'Recipe Test', description: 'This is a test recipe', preparationTime: 15.0, cookingTime: 15.0, public: true)
+
+      @recipe1 = @danny.recipes.create!(name: 'Recipe Test', description: 'This is a test recipe',
+                                        preparationTime: 15.0, cookingTime: 15.0, public: true)
       visit public_recipes_path
       expect(page).to have_current_path(public_recipes_path)
-      
     end
 
     it 'Public Recipe page shows the right content' do

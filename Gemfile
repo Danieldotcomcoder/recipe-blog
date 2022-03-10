@@ -52,8 +52,8 @@ gem 'sassc-rails'
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  gem 'rspec-rails', '~> 5.0.0'
   gem 'capybara'
+  gem 'rspec-rails', '~> 5.0.0'
   gem 'selenium-webdriver'
   gem 'webdrivers'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -73,5 +73,4 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  
 end
