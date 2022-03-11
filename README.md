@@ -18,6 +18,9 @@ git clone https://github.com/Danieldotcomcoder/recipe-blog.git
 
 cd recipe-blog
 
+## live version
+
+[link](https://gentle-hollows-44027.herokuapp.com/)
 ### Prerequisites
 
 Ruby
